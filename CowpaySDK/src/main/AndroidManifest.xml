@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cowpay.cowpaysdk">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity android:name=".ui.activity.credit_card.CreditCardActivity"
+            android:theme="@style/Theme.CowpaySDk"/>
+        <activity
+            android:name=".ui.activity.result_pages.FawryResultActivity"
+            android:theme="@style/Theme.CowpaySDk" />
+        <activity
+            android:name=".ui.activity.home.HomeCopwayActivity"
+            android:theme="@style/Theme.CowpaySDk" />
+    </application>
+
+</manifest>

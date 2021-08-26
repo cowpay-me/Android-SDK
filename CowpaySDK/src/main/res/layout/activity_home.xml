@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fcfdff"
+    tools:context=".ui.activity.home.HomeCopwayActivity">
+
+    <include
+        android:id="@+id/toobar"
+        layout="@layout/toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toobar"
+        android:layout_above="@+id/llFooter"
+        android:orientation="vertical">
+
+        <HorizontalScrollView
+            android:id="@+id/svTabs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_110sdp"
+            android:fillViewport="true"
+            android:padding="@dimen/_12sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:id="@+id/flCreditCard"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/raduis_10">
+
+                    <TextView
+                        android:id="@+id/tvCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableTop="@drawable/ic_credit_card_primary"
+                        android:drawablePadding="@dimen/_6sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:text="Credit\nCard"
+                        android:textColor="#6b4d8b"
+                        android:textSize="@dimen/_12ssp" />
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/flFawry"
+                    android:layout_width="@dimen/_75sdp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:background="@drawable/raduis_10_grey">
+
+                    <TextView
+                        android:id="@+id/tvFawry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:drawableTop="@drawable/icon_fawry"
+                        android:drawablePadding="@dimen/_6sdp"
+                        android:fontFamily="@font/roboto_medium"
+                        android:gravity="center"
+                        android:text="Fawry\nPay"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_12ssp" />
+                </FrameLayout>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <include
+            android:id="@+id/layoutCreditCard"
+            layout="@layout/layout_credit_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/layoutFawry"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:textSize="@dimen/_12sdp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:textColor="@color/black"
+            android:visibility="gone" />
+
+
+
+    </LinearLayout>
+
+<include
+    layout="@layout/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_above="@+id/view"
+    android:layout_marginStart="@dimen/_12sdp"
+    android:layout_marginEnd="@dimen/_12sdp"
+    android:layout_marginBottom="@dimen/_10sdp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:id="@+id/view"
+        android:layout_above="@+id/btnPay"
+        android:background="@color/grey"/>
+    <TextView
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_above="@+id/progress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/rounded_dialog_primary"
+        android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
+        android:text="Confirm Payment"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_12ssp" />
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:indeterminateTint="@color/primaryColor2"
+        android:layout_gravity="center_horizontal"
+        android:visibility="invisible" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toobar"
+        android:visibility="gone" />
+
+</RelativeLayout>

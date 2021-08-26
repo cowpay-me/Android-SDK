@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardCornerRadius="25dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:minWidth="300dp"
+        android:orientation="vertical"
+        android:paddingStart="22dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="22dp"
+        android:paddingBottom="16dp">
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/dialogIcon"
+            android:layout_width="@dimen/_120sdp"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            tools:src="@tools:sample/avatars" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="@color/colorBlack44"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvSubTitle"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorBlack44"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/tvPositive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_rounded_13"
+                android:minWidth="150dp"
+                android:textColor="@android:color/white"
+                android:visibility="gone"
+                app:backgroundTint="@color/primaryColor2"
+                app:cornerRadius="@dimen/_12sdp"
+                app:textAllCaps="true"
+                tools:text="positive" />
+
+            <Button
+                android:id="@+id/tvNegative"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_rounded_13"
+                android:minWidth="150dp"
+                android:textColor="@color/colorBlack44"
+                android:visibility="gone"
+                app:backgroundTint="@color/gray"
+                app:cornerRadius="@dimen/_12sdp"
+                app:textAllCaps="true"
+                tools:text="negative" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

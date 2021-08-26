@@ -1,0 +1,3 @@
+include ':CowpaySDK'
+include ':app'
+rootProject.name = "Cowpay"

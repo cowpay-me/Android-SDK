@@ -1,0 +1,9 @@
+<resources>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="invalid_card_name">Invalid Card Name</string>
+    <string name="invalid_card_number">Invalid Card Number</string>
+    <string name="invalid_card_date">Invalid Card Date</string>
+    <string name="invalid_card_cvv">Invalid Card CVV</string>
+    <string name="back"><u>Back</u></string>
+</resources>

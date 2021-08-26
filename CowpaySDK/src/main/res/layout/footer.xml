@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llFooter"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/edit_text_border_white_native"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/_12sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/footerimg"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:background="@drawable/rounded_dialog_primary"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/footer_img" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/footerimg"
+            android:layout_alignBottom="@+id/footerimg"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_toEndOf="@+id/footerimg"
+            android:fontFamily="@font/roboto_bold"
+            android:gravity="center"
+            android:text="Cowpay"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14ssp" />
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_toStartOf="@+id/footer_2"
+            android:src="@drawable/ic_master_card" />
+
+        <ImageView
+            android:id="@+id/footer_2"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+
+            android:layout_toStartOf="@+id/footer_3"
+            android:src="@drawable/footer_2" />
+
+        <ImageView
+            android:id="@+id/footer_3"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_toStartOf="@+id/footer_4"
+            android:src="@drawable/ic_fawry" />
+
+        <ImageView
+            android:id="@+id/footer_4"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:src="@drawable/footer_4" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create &amp; Maage Payment Links For Your Business Seamlisely"
+        android:textColor="#A8A9AC"
+        android:textSize="@dimen/_11ssp" />
+</LinearLayout>
