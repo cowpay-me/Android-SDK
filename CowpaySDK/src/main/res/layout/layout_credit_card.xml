@@ -30,7 +30,7 @@
 
             android:background="@drawable/edit_text_border_white_native"
             android:fontFamily="@font/roboto_regular"
-            android:hint="Card Holder Name"
+            android:hint="@string/card_name"
 
             android:inputType="textPersonName"
             android:maxLines="1"
@@ -55,7 +55,7 @@
             android:background="@drawable/edit_text_border_white_native"
             android:digits="0123456789 "
             android:fontFamily="@font/roboto_regular"
-            android:hint="Card Number"
+            android:hint="@string/card_number"
             android:inputType="phone"
             android:maxLength="19"
             android:maxLines="1"

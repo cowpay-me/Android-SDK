@@ -7,6 +7,34 @@
     <string name="invalid_card_cvv">Invalid Card CVV</string>
     <string name="back"><u>Back</u></string>
     <string name="required">Required</string>
+    <string name="please_click">Please click</string>
+    <string name="confirm_payment">Confirm Payment</string>
+    <string name="btn_to_generate">"button to generate "</string>
+    <string name="ref_num">Reference Number</string>
+    <string name="succes_msg_for_card">Your order has been submitted successfully</string>
+    <string name="error_msg_for_card">Payment failed</string>
+    <string name="credit_card">Credit \n Card</string>
+    <string name="fawry_pay">Fawry \n Pay</string>
+    <string name="cash_collection">Cash \n Collection</string>
+    <string name="card_name">Card Holder Name</string>
+    <string name="card_number">Card Number</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_mobile">Customer Mobile</string>
+    <string name="customer_email">Customer Email</string>
+    <string name="address">Address</string>
+    <string name="floor">Floor</string>
+    <string name="district">District</string>
+    <string name="apartment">Apartment</string>
+    <string name="succes_msg_for_cash_collection">We will contact you ASAP to complete the payment</string>
+    <string name="fawry_code">Fawry Code</string>
+    <string name="copy_code">Copy Code</string>
+    <string name="payment_steps">Payment Steps: </string>
+    <string name="fawry_step_1">Go to any Fawry retail store</string>
+    <string name="fawry_step_2">Choose Fawry Pay | فورى باى from the main menu</string>
+    <string name="fawry_step_3">"Enter the reference number: "</string>
+    <string name="fawry_step_4">Make sure your data is correct</string>
+    <string name="fawry_step_5">Pay and keep the receipt</string>
+    <string name="footer_text">Create &amp; Maage Payment Links For Your Business Seamlisely</string>
 
     <array name="cities">
         <item>Cairo</item>

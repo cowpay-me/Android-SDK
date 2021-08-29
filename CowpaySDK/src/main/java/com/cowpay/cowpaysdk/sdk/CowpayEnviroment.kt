@@ -4,6 +4,6 @@ enum class CowpayEnviroment {
     STAGING,PRODUCTION
 }
 
-enum class CowpayScreenMode {
-    OVERLAY,FULLSCREEN
+enum class CowpaySDKPaymentMethod {
+    CARD,FAWRY,CASH_COLLECTION
 }

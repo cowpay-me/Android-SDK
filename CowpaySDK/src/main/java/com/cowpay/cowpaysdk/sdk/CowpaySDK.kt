@@ -16,8 +16,9 @@ object CowpaySDK {
     internal var paymentInfo: PaymentInfo? = null
     internal var signature = ""
     private var enviroment = CowpayEnviroment.STAGING
-    private var screenMode = CowpayScreenMode.OVERLAY
+    internal var paymentMethodAvailability = arrayOf(CowpaySDKPaymentMethod.CARD,CowpaySDKPaymentMethod.FAWRY,CowpaySDKPaymentMethod.CASH_COLLECTION)
     internal var callback: CowpayCallback? = null
+    internal var successMsgForCashCollection: String? = null
 
 
     internal fun getUrl(): String {
@@ -38,8 +39,12 @@ object CowpaySDK {
         this.hashKey = hashKey
     }
 
-   private fun setCowpayScreenMode(mode: CowpayScreenMode) {
-        screenMode = mode
+    fun setPaymentMethodAvailability(array: Array<CowpaySDKPaymentMethod>) {
+        this.paymentMethodAvailability = array
+    }
+
+    fun setSuccessMsgForCashCollection(str:String) {
+        this.successMsgForCashCollection = successMsgForCashCollection
     }
 
     fun launch(

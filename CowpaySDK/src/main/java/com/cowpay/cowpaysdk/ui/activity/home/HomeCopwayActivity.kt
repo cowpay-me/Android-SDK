@@ -28,6 +28,7 @@ import com.cowpay.cowpaysdk.models.CardRequest
 import com.cowpay.cowpaysdk.models.CashCollectionRequest
 import com.cowpay.cowpaysdk.models.CowpayResponse
 import com.cowpay.cowpaysdk.sdk.CowpaySDK
+import com.cowpay.cowpaysdk.sdk.CowpaySDKPaymentMethod
 import com.cowpay.cowpaysdk.ui.activity.result_pages.FawryResultActivity
 import com.cowpay.cowpaysdk.utils.CashCollectionValidationType
 import com.cowpay.cowpaysdk.utils.DialogHelper
@@ -50,9 +51,7 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
         viewModel = ViewModelProvider(this).get(HomeCopwayViewModel::class.java)
         listener()
         observer()
-        setCashCollectionData()
-        flCreditCard.performClick()
-
+        setAvailableOptions()
     }
 
     private fun setCashCollectionData() {
@@ -63,17 +62,35 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
 
     var visa: Drawable? = null
     var master: Drawable? = null
-    val fawryText = SpannableStringBuilder()
-        .append("Please click")
-        .color(Color.BLACK) { bold { append(" Confirm Payment") } }
-        .append(" button to generate ")
-        .color(Color.BLACK) { bold { append("Reference Number") } }
+    var fawryText: SpannableStringBuilder? = null
 
     fun init() {
         visa = ContextCompat.getDrawable(this, R.drawable.ic_visa_dark_copy)
-        master = ContextCompat.getDrawable(this,R.drawable.ic_mastercard_color)
+        master = ContextCompat.getDrawable(this, R.drawable.ic_mastercard_color)
+        fawryText = SpannableStringBuilder()
+            .append(getString(R.string.please_click))
+            .color(Color.BLACK) { bold { append(getString(R.string.confirm_payment)) } }
+            .append(getString(R.string.btn_to_generate))
+            .color(Color.BLACK) { bold { append(getString(R.string.ref_num)) } }
         layoutFawry.text = fawryText
+        setCashCollectionData()
     }
+
+    private fun setAvailableOptions() {
+        if (CowpaySDK.paymentMethodAvailability.contains(CowpaySDKPaymentMethod.CASH_COLLECTION)) {
+            flCashCollection.visibility = View.VISIBLE
+            flCashCollection.performClick()
+        }
+        if (CowpaySDK.paymentMethodAvailability.contains(CowpaySDKPaymentMethod.FAWRY)) {
+            flFawry.visibility = View.VISIBLE
+            flFawry.performClick()
+        }
+        if (CowpaySDK.paymentMethodAvailability.contains(CowpaySDKPaymentMethod.CARD)) {
+            flCreditCard.visibility = View.VISIBLE
+            flCreditCard.performClick()
+        }
+    }
+
     private fun observer() {
         viewModel.cardTypeSelected.observe(this, {
 
@@ -82,7 +99,7 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
                 PaymentCardType.MASTERCARD -> master
                 else -> null
             }
-            etCardNumber.setCompoundDrawablesWithIntrinsicBounds(null,null,selectedImg,null)
+            etCardNumber.setCompoundDrawablesWithIntrinsicBounds(null, null, selectedImg, null)
         })
 
         viewModel.bankCardValidationMsg.observe(this, Observer {
@@ -108,7 +125,13 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
         })
 
         viewModel.cashCollection.observe(this, Observer {
-            DialogHelper.showError(supportFragmentManager, R.drawable.success, title = it.paymentGatewayReferenceId,str = "We will contact you ASAP to complete the payment") {
+            DialogHelper.showError(
+                supportFragmentManager,
+                R.drawable.success,
+                title = it.paymentGatewayReferenceId,
+                str = CowpaySDK.successMsgForCashCollection
+                    ?: getString(R.string.succes_msg_for_cash_collection)
+            ) {
                 CowpaySDK.callback?.successByCashCollection(it)
             }
         })
@@ -304,7 +327,7 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
                 DialogHelper.showError(
                     fragmentManager,
                     R.drawable.success,
-                    "Your order has been submitted successfully"
+                    activity.getString(R.string.succes_msg_for_card)
                 )
                 {
                     activity.finish()
@@ -316,7 +339,7 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
                     )
                 }
             }else {
-                val msg = "Payment failed"
+                val msg = activity.getString(R.string.error_msg_for_card)
                 DialogHelper.showError(fragmentManager, R.drawable.error, msg) {
                     activity.finish()
                     CowpaySDK.callback?.error(msg)

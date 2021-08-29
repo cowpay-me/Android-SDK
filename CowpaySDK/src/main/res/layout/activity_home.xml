@@ -33,6 +33,7 @@
 
                     <FrameLayout
                         android:id="@+id/flCreditCard"
+                        android:visibility="gone"
                         android:layout_width="@dimen/_75sdp"
                         android:layout_height="match_parent"
                         android:background="@drawable/raduis_10">
@@ -45,7 +46,7 @@
                             android:drawablePadding="@dimen/_6sdp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center"
-                            android:text="Credit\nCard"
+                            android:text="@string/credit_card"
                             android:textColor="#6b4d8b"
                             android:textSize="@dimen/_12ssp"
                             app:drawableTopCompat="@drawable/ic_credit_card_primary" />
@@ -53,6 +54,7 @@
 
                     <FrameLayout
                         android:id="@+id/flFawry"
+                        android:visibility="gone"
                         android:layout_width="@dimen/_75sdp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_12sdp"
@@ -66,7 +68,7 @@
                             android:drawablePadding="@dimen/_6sdp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center"
-                            android:text="Fawry\nPay"
+                            android:text="@string/fawry_pay"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp"
                             app:drawableTopCompat="@drawable/icon_fawry" />
@@ -74,6 +76,7 @@
 
                     <FrameLayout
                         android:id="@+id/flCashCollection"
+                        android:visibility="gone"
                         android:layout_width="@dimen/_75sdp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/_12sdp"
@@ -87,7 +90,7 @@
                             android:drawablePadding="@dimen/_6sdp"
                             android:fontFamily="@font/roboto_medium"
                             android:gravity="center"
-                            android:text="Cash \n Collection"
+                            android:text="@string/cash_collection"
                             android:textColor="@color/black"
                             android:textSize="@dimen/_12ssp"
                             app:drawableTopCompat="@drawable/ic_cash_collection" />
@@ -160,7 +163,7 @@
             android:background="@drawable/rounded_dialog_primary"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center"
-            android:text="Confirm Payment"
+            android:text="@string/confirm_payment"
             android:textColor="@color/white"
             android:textSize="@dimen/_12ssp" />
 
