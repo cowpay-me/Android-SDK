@@ -2,6 +2,7 @@ package com.cowpay.cowpaysdk.sdk
 
 import com.cowpay.cowpay.network.base.AuthInterceptor
 import com.cowpay.cowpay.network.base.RetroClient
+import com.cowpay.cowpaysdk.models.CashCollectionRequest
 import com.cowpay.cowpaysdk.models.CowpayRequest
 import com.cowpay.cowpaysdk.models.CowpayResponse
 import com.cowpay.cowpaysdk.network.base.ApiService
@@ -41,10 +42,31 @@ internal class CowpayOperator {
         request.signature = CowpaySDK.signature
         request.cardNumber = cardNumber
         request.expiryYear = cardYear
-        request.expiryMonth = "05"
+        request.expiryMonth = cardMonth
         request.cardHolder = cardName
         request.cvv = cardCvv
         getRemoteDS()?.payWithCard(request,callbacks = callbacks)
+    }
+
+    fun payWithCahCollection(
+        cashCollectionRequest: CashCollectionRequest,
+        cityCode:String,
+        callbacks: BaseResponse<CowpayResponse>){
+        val request = CowpayRequest()
+        request.merchantReferenceId = CowpaySDK.paymentInfo?.merchantReferenceId
+        request.customerMerchantProfileId = CowpaySDK.paymentInfo?.customerMerchantProfileId
+        request.amount = CowpaySDK.paymentInfo?.amount.toString()
+        request.customerName = cashCollectionRequest.customerName
+        request.customerMobile = cashCollectionRequest.customerPhone
+        request.customerEmail = cashCollectionRequest.customerEmail
+        request.description = CowpaySDK.paymentInfo?.description
+        request.signature = CowpaySDK.signature
+        request.address = cashCollectionRequest.address
+        request.floor = cashCollectionRequest.floor
+        request.district = cashCollectionRequest.district
+        request.apartment = cashCollectionRequest.apartment
+        request.cityCode = cityCode
+        getRemoteDS()?.payWithCahCollection(request,callbacks = callbacks)
     }
 
     private var rDS:RemoteDS? = null

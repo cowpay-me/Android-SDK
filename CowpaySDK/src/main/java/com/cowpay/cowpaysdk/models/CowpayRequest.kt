@@ -41,4 +41,18 @@ open class CowpayRequest {
 
     @SerializedName("card_holder")
     internal var cardHolder: String? = null
+
+    @SerializedName("address")
+    internal var address: String? = null
+
+    @SerializedName("floor")
+    internal var floor: String? = null
+    @SerializedName("district")
+    internal var district: String? = null
+
+    @SerializedName("apartment")
+    internal var apartment: String? = null
+
+    @SerializedName("city_code")
+    internal var cityCode: String? = null
 }

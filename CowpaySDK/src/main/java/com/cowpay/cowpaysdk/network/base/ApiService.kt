@@ -21,4 +21,7 @@ interface ApiService {
     @POST("charge/card/direct")
     suspend fun payWithCard(@Body request : CowpayRequest): Response<CowpayResponse>
 
+    @POST("https://cowpay.me/api/v2/charge/cash-collection")
+    suspend fun payWithCahCollection(@Body request : CowpayRequest): Response<CowpayResponse>
+
 }

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/_30sdp"
+    android:layout_marginBottom="@dimen/_30sdp"
+    android:scrollbars="none"
+    tools:context=".ui.activity.credit_card.CreditCardActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCustomerName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Customer Name"
+                android:inputType="textPersonName"
+
+                android:maxLines="1"
+                android:nextFocusForward="@id/etCustomerMobile"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCustomerMobile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+                android:digits="0123456789"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Customer Mobile"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:maxLines="1"
+                android:nextFocusForward="@id/etCustomerEmail"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etCustomerEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Customer Email"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:nextFocusForward="@id/etAddress"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Address"
+                android:inputType="text"
+                android:maxLines="1"
+                android:nextFocusForward="@id/etFloor"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFloor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Floor"
+                android:inputType="text"
+                android:maxLines="1"
+                android:nextFocusForward="@id/etDistrict"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="District"
+                android:inputType="text"
+                android:maxLines="1"
+                android:nextFocusForward="@id/etApartment"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textColorHint="#9a9da2"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etApartment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edit_text_border_white_native"
+                android:fontFamily="@font/roboto_regular"
+                android:hint="Apartment"
+                android:inputType="text"
+                android:maxLines="1"
+                android:nextFocusForward="@id/etCardNumber"
+                android:textColor="@color/primaryColor"
+                android:textColorHint="#9a9da2"
+                android:textSize="@dimen/_12ssp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:background="@drawable/edit_text_border_white_native"
+            android:padding="@dimen/_8sdp">
+
+            <Spinner
+                android:id="@+id/spCities"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/cities" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center_vertical"
+                android:src="@drawable/ic_baseline_arrow_drop_down_24"/>
+        </FrameLayout>
+
+    </LinearLayout>
+</ScrollView>

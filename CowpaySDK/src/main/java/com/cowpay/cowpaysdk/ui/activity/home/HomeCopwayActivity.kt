@@ -24,14 +24,18 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.cowpay.cowpaysdk.R
 import com.cowpay.cowpaysdk.models.Card
+import com.cowpay.cowpaysdk.models.CardRequest
+import com.cowpay.cowpaysdk.models.CashCollectionRequest
 import com.cowpay.cowpaysdk.models.CowpayResponse
 import com.cowpay.cowpaysdk.sdk.CowpaySDK
 import com.cowpay.cowpaysdk.ui.activity.result_pages.FawryResultActivity
+import com.cowpay.cowpaysdk.utils.CashCollectionValidationType
 import com.cowpay.cowpaysdk.utils.DialogHelper
 import com.cowpay.cowpaysdk.utils.MonthYearPickerDialog
 import com.cowpay.cowpaysdk.utils.PaymentCardType
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.layout_cash_collection.*
 import kotlinx.android.synthetic.main.layout_credit_card.*
 import kotlinx.android.synthetic.main.toolbar.*
 
@@ -46,19 +50,27 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
         viewModel = ViewModelProvider(this).get(HomeCopwayViewModel::class.java)
         listener()
         observer()
+        setCashCollectionData()
         flCreditCard.performClick()
 
     }
 
-    var visa:Drawable? = null
-    var master:Drawable? = null
-    val fawryText =  SpannableStringBuilder()
+    private fun setCashCollectionData() {
+        etCustomerName.setText(CowpaySDK.paymentInfo?.customerName ?: "")
+        etCustomerEmail.setText(CowpaySDK.paymentInfo?.customerEmail ?: "")
+        etCustomerMobile.setText(CowpaySDK.paymentInfo?.customerMobile ?: "")
+    }
+
+    var visa: Drawable? = null
+    var master: Drawable? = null
+    val fawryText = SpannableStringBuilder()
         .append("Please click")
         .color(Color.BLACK) { bold { append(" Confirm Payment") } }
         .append(" button to generate ")
         .color(Color.BLACK) { bold { append("Reference Number") } }
-    fun init(){
-        visa = ContextCompat.getDrawable(this,R.drawable.ic_visa_dark_copy)
+
+    fun init() {
+        visa = ContextCompat.getDrawable(this, R.drawable.ic_visa_dark_copy)
         master = ContextCompat.getDrawable(this,R.drawable.ic_mastercard_color)
         layoutFawry.text = fawryText
     }
@@ -94,6 +106,24 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
             startActivity(intent)
             finish()
         })
+
+        viewModel.cashCollection.observe(this, Observer {
+            DialogHelper.showError(supportFragmentManager, R.drawable.success, title = it.paymentGatewayReferenceId,str = "We will contact you ASAP to complete the payment") {
+                CowpaySDK.callback?.successByCashCollection(it)
+            }
+        })
+
+        viewModel.invalidInputCashCollection.observe(this, Observer {
+            when(it){
+                CashCollectionValidationType.INVALID_NAME -> etCustomerName.error = getString(R.string.required)
+                CashCollectionValidationType.INVALID_EMAIL -> etCustomerEmail.error = getString(R.string.required)
+                CashCollectionValidationType.INVALID_PHONE -> etCustomerMobile.error = getString(R.string.required)
+                CashCollectionValidationType.INVALID_ADDRESS -> etAddress.error = getString(R.string.required)
+                CashCollectionValidationType.INVALID_FLOOR -> etFloor.error = getString(R.string.required)
+                CashCollectionValidationType.INVALID_DISTRICT -> etDistrict.error = getString(R.string.required)
+                CashCollectionValidationType.INVALID_APARTMENT -> etApartment.error = getString(R.string.required)
+            }
+        })
     }
 
     fun loadWebviewForPayment(token: String){
@@ -128,16 +158,39 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
             tvCard.setCompoundDrawablesWithIntrinsicBounds(null,ContextCompat.getDrawable(this,R.drawable.ic_credit_card_primary),null,null)
             layoutCreditCard.visibility = View.VISIBLE
             layoutFawry.visibility = View.GONE
+            layoutCashCollection.visibility = View.GONE
         }
 
         flFawry.setOnClickListener {
             viewModel.selectFawry()
             clearSelection()
             selectItem(it)
-            tvFawry.setTextColor(ContextCompat.getColor(this,R.color.primaryColor2))
-            tvFawry.setCompoundDrawablesWithIntrinsicBounds(null,ContextCompat.getDrawable(this,R.drawable.icon_fawry_primary),null,null)
+            tvFawry.setTextColor(ContextCompat.getColor(this, R.color.primaryColor2))
+            tvFawry.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                ContextCompat.getDrawable(this, R.drawable.icon_fawry_primary),
+                null,
+                null
+            )
             layoutCreditCard.visibility = View.GONE
+            layoutCashCollection.visibility = View.GONE
             layoutFawry.visibility = View.VISIBLE
+        }
+
+        flCashCollection.setOnClickListener {
+            viewModel.selectCashCollection()
+            clearSelection()
+            selectItem(it)
+            tvCashCollection.setTextColor(ContextCompat.getColor(this, R.color.primaryColor2))
+            tvCashCollection.setCompoundDrawablesWithIntrinsicBounds(
+                null,
+                ContextCompat.getDrawable(this, R.drawable.ic_cash_collection_primary),
+                null,
+                null
+            )
+            layoutCreditCard.visibility = View.GONE
+            layoutFawry.visibility = View.GONE
+            layoutCashCollection.visibility = View.VISIBLE
         }
 
         etCardNumber.addTextChangedListener {
@@ -146,10 +199,22 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
 
         btnPay.setOnClickListener {
             viewModel.pay(
-                etCardName.text.toString(),
-                etCardNumber.text.toString(),
-                tvExpiryDate.text.toString(),
-                tvCardCVV.text.toString()
+                CardRequest(
+                    etCardName.text.toString(),
+                    etCardNumber.text.toString(),
+                    tvExpiryDate.text.toString(),
+                    tvCardCVV.text.toString()
+                ),
+                CashCollectionRequest(
+                    etCustomerName.text.toString(),
+                    etCustomerMobile.text.toString(),
+                    etCustomerEmail.text.toString(),
+                    etAddress.text.toString(),
+                    etFloor.text.toString(),
+                    etDistrict.text.toString(),
+                    etApartment.text.toString(),
+                    spCities.selectedItemPosition
+                )
             )
         }
 
@@ -197,11 +262,29 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
 
     private fun clearSelection(){
         flCreditCard.background = ContextCompat.getDrawable(this,R.drawable.raduis_10_grey)
-        flFawry.background = ContextCompat.getDrawable(this,R.drawable.raduis_10_grey)
+        flFawry.background = ContextCompat.getDrawable(this, R.drawable.raduis_10_grey)
+        flCashCollection.background = ContextCompat.getDrawable(this, R.drawable.raduis_10_grey)
         tvCard.setTextColor(ContextCompat.getColor(this,R.color.black))
-        tvFawry.setTextColor(ContextCompat.getColor(this,R.color.black))
-        tvCard.setCompoundDrawablesWithIntrinsicBounds(null,ContextCompat.getDrawable(this,R.drawable.ic_credit_card),null,null)
-        tvFawry.setCompoundDrawablesWithIntrinsicBounds(null,ContextCompat.getDrawable(this,R.drawable.icon_fawry),null,null)
+        tvFawry.setTextColor(ContextCompat.getColor(this, R.color.black))
+        tvCashCollection.setTextColor(ContextCompat.getColor(this, R.color.black))
+        tvCard.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            ContextCompat.getDrawable(this, R.drawable.ic_credit_card),
+            null,
+            null
+        )
+        tvFawry.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            ContextCompat.getDrawable(this, R.drawable.icon_fawry),
+            null,
+            null
+        )
+        tvCashCollection.setCompoundDrawablesWithIntrinsicBounds(
+            null,
+            ContextCompat.getDrawable(this, R.drawable.ic_cash_collection),
+            null,
+            null
+        )
     }
 
     private fun selectItem(fl: View){

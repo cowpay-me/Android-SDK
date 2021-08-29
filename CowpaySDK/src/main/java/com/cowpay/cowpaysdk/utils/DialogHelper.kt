@@ -10,9 +10,9 @@ import com.thecode.aestheticdialogs.*
 
 object DialogHelper {
 
-    fun showError(context: FragmentManager, @DrawableRes drawableRes:Int, str: String, callback: DialogCallback) {
+    fun showError(context: FragmentManager, @DrawableRes drawableRes:Int, str: String,title: String? = null, callback: DialogCallback) {
 
-        val dialog = AppDialogFragment.newInstance(drawableRes,null,str,"Ok",null)
+        val dialog = AppDialogFragment.newInstance(drawableRes,title,str,"Ok",null)
         dialog.positiveCallback = callback
         dialog.show(context,"dialog")
     }

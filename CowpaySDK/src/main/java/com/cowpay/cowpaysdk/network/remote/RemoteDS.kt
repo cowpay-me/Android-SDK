@@ -30,4 +30,14 @@ class RemoteDS(private val apiService: ApiService): BaseRemoteDataSource() {
         }
     }
 
+    fun payWithCahCollection(request : CowpayRequest,
+                    callbacks: BaseResponse<CowpayResponse>
+    ) {
+        ui {
+            apiRequest({
+                apiService.payWithCahCollection(request)
+            }, callbacks)
+        }
+    }
+
 }

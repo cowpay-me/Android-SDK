@@ -6,4 +6,31 @@
     <string name="invalid_card_date">Invalid Card Date</string>
     <string name="invalid_card_cvv">Invalid Card CVV</string>
     <string name="back"><u>Back</u></string>
+    <string name="required">Required</string>
+
+    <array name="cities">
+        <item>Cairo</item>
+        <item>Giza &amp; Haram</item>
+        <item>Downtown Alex</item>
+        <item>Sahel</item>
+        <item>Behira</item>
+        <item>Dakahlia</item>
+        <item>El Kalioubia</item>
+        <item>Gharbia</item>
+        <item>Kafr Alsheikh</item>
+        <item>Monufia</item>
+        <item>Sharqia</item>
+        <item>Isamilia</item>
+        <item>Suez</item>
+        <item>Port Said</item>
+        <item>Damietta</item>
+        <item>Fayoum</item>
+        <item>Bani Suif</item>
+        <item>Asyut</item>
+        <item>Sohag</item>
+        <item>Menya</item>
+        <item>Qena</item>
+        <item>Aswan</item>
+        <item>Luxor</item>
+    </array>
 </resources>
