@@ -54,23 +54,51 @@ dependencies {
 
 **Step3** launch sdk and create a callback
 ```kotlin
-            CowpaySDK.launch(this,payment,object :CowpayCallback{
-                override fun successByFawry(fawry: Fawry) {
+        CowpaySDK.launch(this,payment,object :CowpayCallback{
+            override fun successByFawry(fawry: Fawry) {
                 // Successful payment using Fawry
-                }
+            }
 
-                override fun successByCreditCard(card: Card) {
-                    // Successful payment using debit or credit card
-                }
+            override fun successByCreditCard(card: Card) {
+                // Successful payment using debit or credit card
+            }
 
-                override fun error(it: String) {
+            override fun successByCashCollection(cashCollection: CashCollection) {
+                // Successful payment using Cash Collection
+                Log.e("ahmed",cashCollection.cowpayReferenceId.toString())
+            }
+
+            override fun error(it: String) {
                 // error during the payment process
-                }
+            }
 
-                override fun closeByUser() {
+            override fun closeByUser() {
                 // the user decided to leave the payment page
-                }
-            })
+            }
+        })
+    }
 ```
 
+## Additional Options
 
+
+**1** You can choose the payment methods that you want to appear to the user.
+```kotlin
+// you can select from 3 options (CowpaySDKOption.CARD,CowpaySDKOption.FAWRY,CowpaySDKOption.CASH_COLLECTION)
+// by default we will show 3 options
+// add this line before launch sdk
+CowpaySDK.setAvailableOption(arrayOf(CowpaySDKOption.FAWRY,CowpaySDKOption.CASH_COLLECTION))
+```
+
+**1** You can choose the payment methods that you want to appear to the user.
+```kotlin
+// you can select from 3 options (CowpaySDKPaymentMethod.CARD,CowpaySDKPaymentMethod.FAWRY,CowpaySDKPaymentMethod.CASH_COLLECTION)
+// by default we will show 3 options
+// add this line before launch sdk
+CowpaySDK.setPaymentMethodAvailability(arrayOf(CowpaySDKPaymentMethod.FAWRY,CowpaySDKPaymentMethod.CASH_COLLECTION))
+```
+
+**2** You can change success message for cash collection option.
+```kotlin
+CowpaySDK.setSuccessMsgForCashCollection("Success")
+```
