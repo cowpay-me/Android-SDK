@@ -90,14 +90,6 @@ dependencies {
 CowpaySDK.setAvailableOption(arrayOf(CowpaySDKOption.FAWRY,CowpaySDKOption.CASH_COLLECTION))
 ```
 
-**1** You can choose the payment methods that you want to appear to the user.
-```kotlin
-// you can select from 3 options (CowpaySDKPaymentMethod.CARD,CowpaySDKPaymentMethod.FAWRY,CowpaySDKPaymentMethod.CASH_COLLECTION)
-// by default we will show 3 options
-// add this line before launch sdk
-CowpaySDK.setPaymentMethodAvailability(arrayOf(CowpaySDKPaymentMethod.FAWRY,CowpaySDKPaymentMethod.CASH_COLLECTION))
-```
-
 **2** You can change success message for cash collection option.
 ```kotlin
 CowpaySDK.setSuccessMsgForCashCollection("Success")
