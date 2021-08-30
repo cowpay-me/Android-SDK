@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  TODO: Remove or change this placeholder text  -->
+    <string name="hello_blank_fragment">مرحبا جزء فارغ</string>
+    <string name="invalid_card_name">البطاقة غير صالحة</string>
+    <string name="invalid_card_number">رقم البطاقة غير صالح</string>
+    <string name="invalid_card_date">تاريخ البطاقة غير صالح</string>
+    <string name="invalid_card_cvv">بطاقة CVV غير صالح</string>
+    <string name="back"><u>السابق</u></string>
+    <string name="required">مطلوب</string>
+    <string name="please_click">من فضلك اضغط هنا</string>
+    <string name="confirm_payment">تأكيد الدفع</string>
+    <string name="btn_to_generate">"لانشاء "</string>
+    <string name="ref_num">الرقم المرجعى</string>
+    <string name="succes_msg_for_card">تم تقديم طلبك بنجاح</string>
+    <string name="error_msg_for_card">فشلت عملية الدفع</string>
+    <string name="credit_card">بطاقة \n الأتمان</string>
+    <string name="fawry_pay">فورى \n باى</string>
+    <string name="cash_collection">الدفع من \n المنزل</string>
+    <string name="card_name">إسم صاحب البطاقة</string>
+    <string name="card_number">رقم البطاقة</string>
+    <string name="customer_name">الأسم</string>
+    <string name="customer_mobile">رقم الموبايل</string>
+    <string name="customer_email">البريد الاليكترونى</string>
+    <string name="address">العنوان</string>
+    <string name="floor">الطابق</string>
+    <string name="district">الحى</string>
+    <string name="apartment">شقة رقم</string>
+    <string name="succes_msg_for_cash_collection">سوف نتصل بك في أسرع وقت ممكن لإتمام عملية الدفع</string>
+    <string name="fawry_code">كود فوري</string>
+    <string name="copy_code">نسخ</string>
+    <string name="payment_steps">خطوات الدفع: </string>
+    <string name="fawry_step_1">اذهب إلى أي متجر لدية فورى</string>
+    <string name="fawry_step_2">اختر Fawry Pay | فورى باى من القائمة الرئيسية</string>
+    <string name="fawry_step_3">"أدخل الرقم المرجعي: "</string>
+    <string name="fawry_step_4">تأكد من صحة بياناتك</string>
+    <string name="fawry_step_5">ادفع واحتفظ بالإيصال</string>
+    <string name="footer_text">إنشاء &amp; إدارة روابط الدفع لعملك بشكل وثيق</string>
+    <array name="cities">
+        <item>القاهرة</item>
+        <item>الجيزة &amp; الهرم</item>
+        <item>وسط مدينة الاسكندرية</item>
+        <item>الساحل</item>
+        <item>البحيرة</item>
+        <item>الدقهلية</item>
+        <item>القليوبية</item>
+        <item>الغربية</item>
+        <item>كفر الشيخ</item>
+        <item>المنوفية</item>
+        <item>الشرقية</item>
+        <item>الاسماعيلية</item>
+        <item>السويس</item>
+        <item>بورسعيد</item>
+        <item>دمياط</item>
+        <item>الفيوم</item>
+        <item>بنى سويف</item>
+        <item>اسيوط</item>
+        <item>سهاج</item>
+        <item>المنيا</item>
+        <item>قنا</item>
+        <item>اسوان</item>
+        <item>الاقصر</item>
+    </array>
+</resources>

@@ -34,7 +34,7 @@
     <string name="fawry_step_3">"Enter the reference number: "</string>
     <string name="fawry_step_4">Make sure your data is correct</string>
     <string name="fawry_step_5">Pay and keep the receipt</string>
-    <string name="footer_text">Create &amp; Maage Payment Links For Your Business Seamlisely</string>
+    <string name="footer_text">Create &amp; Manage Payment Links For Your Business Seamlisely</string>
 
     <array name="cities">
         <item>Cairo</item>
