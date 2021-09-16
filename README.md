@@ -24,7 +24,7 @@ Add Frames SDK dependency to the module gradble file:
 ```gradle
 // module gradle file
 dependencies {
- implementation 'com.github.cowpay-me:Android-sdk:1.1.1'
+ implementation 'com.github.cowpay-me:Android-SDK:1.1.1'
 }
 ```
 
