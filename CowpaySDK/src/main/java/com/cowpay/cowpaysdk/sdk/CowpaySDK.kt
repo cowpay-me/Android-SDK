@@ -27,6 +27,12 @@ object CowpaySDK {
         else "https://cowpay.me/api/v2/"
     }
 
+    internal fun getUrlWebView(): String {
+        return if (enviroment == CowpayEnviroment.STAGING)
+            "https://staging.cowpay.me/v2/card/form/"
+        else "https://cowpay.me/v2/card/form/"
+    }
+
     fun init(
         token: String,
         merchantCode: String,

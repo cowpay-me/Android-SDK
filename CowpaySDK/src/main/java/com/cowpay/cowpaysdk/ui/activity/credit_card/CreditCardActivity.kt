@@ -152,7 +152,7 @@ class CreditCardActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListen
         webView.visibility = View.VISIBLE
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        webView.loadUrl("https://staging.cowpay.me/v2/card/form/${token}")
+        webView.loadUrl("${CowpaySDK.getUrlWebView()}${token}")
         webView.addJavascriptInterface(JSBridge(this), "JSBridge")
 
         webView.webViewClient = object : WebViewClient() {
