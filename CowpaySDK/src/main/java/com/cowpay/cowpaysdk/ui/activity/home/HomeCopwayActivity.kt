@@ -155,7 +155,7 @@ internal class HomeCopwayActivity : AppCompatActivity(), DatePickerDialog.OnDate
         webView.visibility = View.VISIBLE
         webView.webViewClient = WebViewClient()
         webView.settings.javaScriptEnabled = true
-        webView.loadUrl("https://staging.cowpay.me/v2/card/form/${token}")
+        webView.loadUrl("${CowpaySDK.getUrlWebView()}${token}")
         webView.addJavascriptInterface(JSBridge(this, supportFragmentManager), "JSBridge")
 
         webView.webViewClient = object : WebViewClient() {
