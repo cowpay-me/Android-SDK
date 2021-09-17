@@ -87,7 +87,7 @@ dependencies {
 // you can select from 3 options (CowpaySDKOption.CARD,CowpaySDKOption.FAWRY,CowpaySDKOption.CASH_COLLECTION)
 // by default we will show 3 options
 // add this line before launch sdk
-CowpaySDK.setAvailableOption(arrayOf(CowpaySDKOption.FAWRY,CowpaySDKOption.CASH_COLLECTION))
+CowpaySDK.setPaymentMethodAvailability(arrayOf(CowpaySDKOption.FAWRY,CowpaySDKOption.CASH_COLLECTION))
 ```
 
 **2** You can change success message for cash collection option.
